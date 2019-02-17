@@ -1,0 +1,9 @@
+def loads(datasetdirlist):
+    listdata = []
+    
+    for i in datasetdirlist:
+        i = pd.read_csv('../input/'+i, sep=';') #Separator depends from files
+        listdata.append(i)
+        i.columns = i.columns.map(lambda x:x.lower()) # Can be any other function
+    data = pd.concat(listdata, sort= False)
+    return data
