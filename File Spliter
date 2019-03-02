@@ -1,0 +1,15 @@
+#Split files in folders based on last modification time
+
+import os, shutil
+
+inputdir = '' #Folder dir
+outputdir = '/output' #Output dir
+
+with os.scandir(inputdir) as dir_entries:
+    for file in dir_entries:
+        source = inputdir + '/' + file.name
+        destination = outputdir + '/' + file.name
+        info = file.stat()
+        if info.st_mtime > 2500000: #Time condition, could be any other stat.
+            shutil.copy2(source, destination) #Copy
+            os.remove(source) #Remove old
