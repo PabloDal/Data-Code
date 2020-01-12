@@ -1,0 +1,26 @@
+#Convert lat and lon strings to floats
+def conversionlat(lat):
+    a = list(lat)
+    if a[-1] == 'N':
+        a.pop()
+        a = "".join(a)
+        coor = float(a)
+        return coor
+    else:
+        a.pop()
+        a = "".join(a)
+        coor = float(a)*-1
+        return coor
+    
+def conversionlon(lon):
+    a = list(lon)
+    if a[-1] == 'E':
+        a.pop()
+        a = "".join(a)
+        coor = float(a)
+        return coor
+    else:
+        a.pop()
+        a = "".join(a)
+        coor = float(a)*-1
+        return coor
